@@ -25,10 +25,7 @@ app = Flask(__name__)
 def index():
 	return "Hello, World!"
 
-@app.route("/martin")
-def martin():
-	return "Hello, Martin!"
-
-@app.route("/Daisy")
-def daisy():
-	return "Hello, Daisy"
+@app.route("/<string:name>")
+def martin(name):
+	name = name.capitalize()
+	return f"<h2>Hello, {name}! Your name has {len(name)} letters</h2>"
